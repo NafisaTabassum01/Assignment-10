@@ -144,7 +144,7 @@ export default function RegisterPage() {
                 {showPassword ? <FaEyeSlash size={16} /> : <FaEye size={16} />}
               </button>
             </div>
-            <Description className="text-[11px] text-slate-400 mt-1 block">Must be at least 8 characters with 1 uppercase and 1 number</Description>
+            {/* <Description className="text-[11px] text-slate-400 mt-1 block">Must be at least 8 characters with 1 uppercase and 1 number</Description> */}
             <FieldError className="text-xs text-red-500 mt-1" />
           </TextField>
 
@@ -185,7 +185,7 @@ export default function RegisterPage() {
           <Button
             type="submit"
             isLoading={isLoading}
-            className={`w-full text-white font-semibold py-6 rounded-xl shadow-md transition-all text-base flex items-center justify-center gap-2 mt-1 cursor-pointer select-none active:scale-[0.98] ${
+            className={`w-full text-white font-semibold py-3 rounded shadow-md transition-all text-base flex items-center justify-center gap-2 mt-1 cursor-pointer select-none active:scale-[0.98] ${
               isLoading ? "bg-[#22577A]/70" : "bg-[#22577A] hover:bg-[#1a4461]"
             }`}
           >

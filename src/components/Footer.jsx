@@ -30,7 +30,7 @@ export default function Footer() {
               <FaShoppingBag size={18} />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-2xl tracking-tight text-white leading-none">ReSell Hub</span>
+              <span className="font-bold text-2xl tracking-tight text-white leading-none">NEXTMART</span>
             </div>
           </Link>
             <p className="text-slate-200 text-sm leading-relaxed mt-2">

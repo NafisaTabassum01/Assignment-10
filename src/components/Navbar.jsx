@@ -68,7 +68,7 @@ export default function Navbar() {
               <FaShoppingBag size={18} />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xl tracking-tight text-[#22577A] leading-none">ReSell Hub</span>
+              <span className="font-bold text-xl tracking-tight text-[#22577A] leading-none">NEXTMART</span>
             </div>
           </Link>
         </div>
