@@ -25,6 +25,9 @@ user: {
         required: true,      // optional/nullable korte চাইলে required: false dite paro
         defaultValue: "",
       },
+      role:{
+      default: "Buyer"
+      },
     },
   },
   database: mongodbAdapter(db, {

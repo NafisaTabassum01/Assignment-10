@@ -2,12 +2,11 @@
 
 import React, { useState } from "react";
 import Link from "next/link"; 
-import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { Button, FieldError, Form, Input, Label, TextField, RadioGroup, Radio, Description } from "@heroui/react";
 import { FaUser, FaLock, FaMapMarkerAlt, FaCheckCircle, FaExclamationCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaBagShopping, FaArrowRight, FaEnvelope } from "react-icons/fa6";
 import { authClient } from "@/lib/auth-client";
 
-// Bangladesh-er shobgula major locations dynamic list mapping
 const POPULAR_LOCATIONS = [
   { value: "dhaka", label: "Dhaka" },
   { value: "chittagong", label: "Chittagong" },
@@ -48,7 +47,8 @@ export default function RegisterPage() {
         email: data.email,
         password: data.password,
         name: data.name,
-        location: data.location, 
+        location: data.location,
+        role: data.role, 
       });
 
       if (error) {
@@ -92,7 +92,6 @@ export default function RegisterPage() {
           <p className="text-sm text-slate-500 mt-1">Join us today to discover next-gen retail</p>
         </div>
 
-        {/* Form component validation layout handler wrapper */}
         <Form validationBehavior="native" onSubmit={handleSubmit} className="flex flex-col gap-5">
           
           {/* Full Name Field */}
@@ -161,6 +160,53 @@ export default function RegisterPage() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
               </div>
             </div>
+          </div>
+
+          {/* --- FIXED WORKABLE CUSTOM BOX RADIO SELECTOR --- */}
+          <div className="flex flex-col gap-3 w-full mt-1">
+            <Label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+              Account Type / Role
+            </Label>
+            
+            <RadioGroup 
+              defaultValue="buyer" 
+              name="role" 
+              orientation="horizontal"
+              isRequired
+              className="flex flex-row gap-3 w-full"
+            >
+              {/* Buyer Box */}
+              <Radio 
+                value="buyer" 
+                className="flex-1 border border-slate-200 rounded-xl p-3 flex flex-col items-start gap-1 cursor-pointer transition-all hover:bg-slate-50 data-[selected=true]:border-[#38A3A5] data-[selected=true]:bg-teal-50/30 focus-visible:outline-none"
+              >
+                <Radio.Content className="flex items-center gap-2 font-semibold text-slate-800 text-sm">
+                  <Radio.Control>
+                    <Radio.Indicator className="border-slate-300 data-[selected=true]:bg-[#38A3A5] data-[selected=true]:border-[#38A3A5]" />
+                  </Radio.Control>
+                  Buyer
+                </Radio.Content>
+                <Description className="text-xs text-slate-400 pl-6 block">
+                  Browse & buy products
+                </Description>
+              </Radio>
+
+              {/* Seller Box */}
+              <Radio 
+                value="seller" 
+                className="flex-1 border border-slate-200 rounded-xl p-3 flex flex-col items-start gap-1 cursor-pointer transition-all hover:bg-slate-50 data-[selected=true]:border-[#38A3A5] data-[selected=true]:bg-teal-50/30 focus-visible:outline-none"
+              >
+                <Radio.Content className="flex items-center gap-2 font-semibold text-slate-800 text-sm">
+                  <Radio.Control>
+                    <Radio.Indicator className="border-slate-300 data-[selected=true]:bg-[#38A3A5] data-[selected=true]:border-[#38A3A5]" />
+                  </Radio.Control>
+                  Seller
+                </Radio.Content>
+                <Description className="text-xs text-slate-400 pl-6 block">
+                  List & sell products
+                </Description>
+              </Radio>
+            </RadioGroup>
           </div>
 
           {/* Status Message Display */}
