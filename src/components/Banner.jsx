@@ -117,7 +117,7 @@ export default function Banner() {
           {/* --- Right Column: Static Visual Section --- */}
           <div className="lg:col-span-5 relative flex items-center justify-center w-full">
             <div className="relative w-full max-w-[450px] lg:max-w-none">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#38A3A5]/10 to-[#57CC99]/10 rounded-2xl blur-2xl -z-10 transform scale-95" />
+              <div className="absolute inset-0 bg-linear-to-tr from-[#38A3A5]/10 to-[#57CC99]/10 rounded-2xl blur-2xl -z-10 transform scale-95" />
               <Image 
                 src={bannerImage} 
                 alt="NextMart Hero Analytics Illustration Banner"
