@@ -2,13 +2,19 @@
 
 import { Button, FieldError, Input, Label, ListBox, TextField, Select, TextArea } from '@heroui/react';
 import React, { useEffect } from 'react';
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { motion } from "framer-motion";
+import { createProduct } from '@/lib/actions/products';
+import { useRouter } from "next/navigation";
+// import { redirect } from 'next/navigation';
 
 const AddProductPage = () => {
+ const router = useRouter();
 
-  const onSubmit = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData(e.currentTarget);
     const product = Object.fromEntries(formData.entries());
 
@@ -18,7 +24,18 @@ const AddProductPage = () => {
       Stock: Number(product.Stock),
     };
 
-    console.log(productData);
+   const res = await createProduct(productData);
+   if (res.insertedId){
+toast.success("Product added successfully!");
+    e.target.reset();
+      router.push("/dashboard/seller");
+
+   }else {
+      toast.error("Failed to add product");
+    }
+   
+
+    // console.log(productData);
     // toast.success("Product listing published successfully!");
   };
 
@@ -29,7 +46,7 @@ const AddProductPage = () => {
   return (
     <div className="w-full sm:w-10/12 min-h-screen bg-slate-50/50 py-8 px-2">
       <form 
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
         className="p-2 md:p-10 bg-white border border-gray-100 text-[#22577A] space-y-6 w-full max-w-2xl mx-auto shadow-2xl rounded-2xl"
       >
         {/* Title Block Header */}
