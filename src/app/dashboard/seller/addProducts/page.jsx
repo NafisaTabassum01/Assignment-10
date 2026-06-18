@@ -22,6 +22,8 @@ const AddProductPage = () => {
       ...product,
       Price: Number(product.Price),
       Stock: Number(product.Stock),
+      sellerId : "seller-123",
+      status : "active",
     };
 
    const res = await createProduct(productData);
