@@ -110,20 +110,7 @@ export default function Banner() {
             </div>
 
             {/* --- Integrated Statistics Row --- */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-100 max-w-md mx-auto lg:mx-0">
-              <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-black text-[#216869]">15k+</span>
-                <span className="text-xs text-slate-500 font-medium mt-0.5">Active Products</span>
-              </div>
-              <div className="flex flex-col border-x border-slate-100 px-4">
-                <span className="text-2xl sm:text-3xl font-black text-[#38A3A5]">99.9%</span>
-                <span className="text-xs text-slate-500 font-medium mt-0.5">Happy Retailers</span>
-              </div>
-              <div className="flex flex-col pl-2">
-                <span className="text-2xl sm:text-3xl font-black text-[#57CC99]">24/7</span>
-                <span className="text-xs text-slate-500 font-medium mt-0.5">Secure Support</span>
-              </div>
-            </div>
+            
 
           </div>
 
