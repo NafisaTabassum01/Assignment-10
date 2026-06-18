@@ -11,7 +11,22 @@ export const auth = betterAuth({
       emailAndPassword: { 
     enabled: true, 
   }, 
-
+  socialProviders: {
+        google: { 
+            clientId: process.env.GOOGLE_CLIENT_ID, 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
+        }, 
+    },
+user: {
+    // ⚠️ EII SECTION-TI CRITICAL: Eta chara location database-e dhukbe na
+    additionalFields: {
+      location: {
+        type: "string",
+        required: true,      // optional/nullable korte চাইলে required: false dite paro
+        defaultValue: "",
+      },
+    },
+  },
   database: mongodbAdapter(db, {
     // Optional: if you don't provide a client, database transactions won't be enabled.
     client

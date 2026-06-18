@@ -1,20 +1,26 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link"; // Next.js standard link routing
-import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import Link from "next/link"; 
+import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { FaUser, FaLock, FaMapMarkerAlt, FaCheckCircle, FaExclamationCircle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaBagShopping, FaArrowRight, FaEnvelope } from "react-icons/fa6";
-
-// BetterAuth client import kora holo
 import { authClient } from "@/lib/auth-client";
 
+// Bangladesh-er shobgula major locations dynamic list mapping
 const POPULAR_LOCATIONS = [
-  { value: "dhaka", label: "Dhaka, Bangladesh" },
-  { value: "chittagong", label: "Chittagong, Bangladesh" },
-  { value: "sylhet", label: "Sylhet, Bangladesh" },
-  { value: "khulna", label: "Khulna, Bangladesh" },
-  { value: "rajshahi", label: "Rajshahi, Bangladesh" },
+  { value: "dhaka", label: "Dhaka" },
+  { value: "chittagong", label: "Chittagong" },
+  { value: "sylhet", label: "Sylhet" },
+  { value: "khulna", label: "Khulna" },
+  { value: "rajshahi", label: "Rajshahi" },
+  { value: "barisal", label: "Barisal" },
+  { value: "rangpur", label: "Rangpur" },
+  { value: "mymensingh", label: "Mymensingh" },
+  { value: "comilla", label: "Comilla" },
+  { value: "gazipur", label: "Gazipur" },
+  { value: "narayanganj", label: "Narayanganj" },
+  { value: "bogra", label: "Bogra" }
 ];
 
 export default function RegisterPage() {
@@ -29,9 +35,8 @@ export default function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setFormStatus({ type: null, message: "" }); // Path reset korlam
+    setFormStatus({ type: null, message: "" }); 
 
-    // Form settings matching plain object map conversion
     const formData = new FormData(e.currentTarget);
     const data = {};
     formData.forEach((value, key) => {
@@ -39,32 +44,27 @@ export default function RegisterPage() {
     });
 
     try {
-      // BetterAuth sign up API processing triggered
       const { data: session, error } = await authClient.signUp.email({
         email: data.email,
         password: data.password,
         name: data.name,
-        location: data.location, // lib/auth.js er custom schema custom mapping data pass hobe
+        location: data.location, 
       });
 
-      // API backend theke error ashle
       if (error) {
         throw new Error(error.message || "Registration failed. Try again.");
       }
 
-      // Success UI update definition
       setFormStatus({
         type: "success",
         message: "Account created successfully! Redirecting...",
       });
 
-      // Success hole user ke login korae homepage ba dashboard-e niye jete paro:
       setTimeout(() => {
         window.location.href = "/";
       }, 1500);
 
     } catch (error) {
-      // Catch exceptions and configuration flaws safely
       setFormStatus({
         type: "error",
         message: error.message || "Something went wrong. Please check your network.",
@@ -92,14 +92,15 @@ export default function RegisterPage() {
           <p className="text-sm text-slate-500 mt-1">Join us today to discover next-gen retail</p>
         </div>
 
-        <Form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        {/* Form component validation layout handler wrapper */}
+        <Form validationBehavior="native" onSubmit={handleSubmit} className="flex flex-col gap-5">
           
           {/* Full Name Field */}
-          <TextField mountaineer="true" isRequired name="name" type="text" className="w-full">
+          <TextField isRequired name="name" type="text" className="w-full">
             <Label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Full Name</Label>
             <div className="relative w-full">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 z-20"><FaUser size={14} /></span>
-              <Input placeholder="John Doe" className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus-visible:outline-none focus-visible:border-[#38A3A5] text-slate-800 transition-all" />
+              <Input placeholder="Enter your name" className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus-visible:outline-none focus-visible:border-[#38A3A5] text-slate-800 transition-all" />
             </div>
             <FieldError className="text-xs text-red-500 mt-1" />
           </TextField>
@@ -135,7 +136,7 @@ export default function RegisterPage() {
             <Label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Password</Label>
             <div className="relative w-full">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 z-20"><FaLock size={14} /></span>
-              <Input placeholder="••••••••" className="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus-visible:outline-none focus-visible:border-[#38A3A5] text-slate-800 transition-all" />
+              <Input placeholder="Choose a password" className="w-full pl-10 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus-visible:outline-none focus-visible:border-[#38A3A5] text-slate-800 transition-all" />
               <button
                 type="button"
                 onClick={togglePasswordVisibility}
@@ -144,7 +145,6 @@ export default function RegisterPage() {
                 {showPassword ? <FaEyeSlash size={16} /> : <FaEye size={16} />}
               </button>
             </div>
-            {/* <Description className="text-[11px] text-slate-400 mt-1 block">Must be at least 8 characters with 1 uppercase and 1 number</Description> */}
             <FieldError className="text-xs text-red-500 mt-1" />
           </TextField>
 
