@@ -1,7 +1,7 @@
 "use client"
 import SellerDashboardStats from '@/components/dashboard/SellerDashboardStats';
 import { useSession } from '@/lib/auth-client';
-import { div } from 'framer-motion/client';
+// import { div } from 'framer-motion/client';
 import React from 'react';
 
 const SellerDashboardPage = () => {

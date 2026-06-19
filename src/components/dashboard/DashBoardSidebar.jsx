@@ -1,26 +1,36 @@
-import {Bars, Bell, Envelope, Gear, House, Magnifier, Person} from "@gravity-ui/icons";
+import {Bars, House, Magnifier, Person} from "@gravity-ui/icons";
 import {Button, Drawer} from "@heroui/react";
+import { IoMdAdd } from "react-icons/io";
+import { AiOutlineProduct } from "react-icons/ai";
+import { MdManageHistory } from "react-icons/md";
+import { IoMdStats } from "react-icons/io";
+import Link from "next/link";
+
+
+
 
 export function DashBoardSidebar() {
   const navItems= [
-    {icon: House, label: "Home"},
-    {icon: Magnifier, label: "Search"},
-    {icon: Bell, label: "Notifications"},
-    {icon: Envelope, label: "Messages"},
-    {icon: Person, label: "Profile"},
-    {icon: Gear, label: "Settings"},
+    {icon: House, href:"/dashboard/seller" ,label: "Home"},
+    {icon: Person, href:"/dashboard/seller/sellerProfile" , label: "Profile"},
+    {icon: Magnifier, href:"/Search" ,  label: "Search"},
+    {icon: IoMdAdd , href:"/dashboard/seller/addProducts" ,  label: "Add Product"},
+    {icon: AiOutlineProduct , href:"/dashboard/seller/products" , label: "My Products"},
+    {icon: MdManageHistory, href:"/manageOrders" ,label: "Manage Orders"},
+    {icon: IoMdStats, href:"/salesAnalytics", label: "Sales Analytics"},
+
   ];
 
   const navContent = <nav className="flex flex-col gap-1">
                 {navItems.map((item) => (
-                  <button
+                  <Link
                     key={item.label}
                     className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-default"
-                    type="button"
+                    href={item.href}
                   >
                     <item.icon className="size-5 text-muted" />
                     {item.label}
-                  </button>
+                  </Link>
                 ))}
               </nav>
 
