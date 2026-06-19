@@ -1,4 +1,25 @@
+'use server'
+
+
+
+import { serverMutation } from "../core/server";
+
+export const createSeller = async (newSellerdata) => {
+  return serverMutation("/api/sellerProfile", newSellerdata);
+};
+
+
+
+
+
 // 'use server'
+
+// import { serverMutation } from "../core/server"
+
+
+// export const createSeller = async (newSellerdata) =>{
+//     return serverMutation('/api/sellerProfile', newSellerdata);
+// }
 
 // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -15,26 +36,26 @@
 //  return res.json();
 // }
 
-'use server'
+// 'use server'
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-export const createSeller = async (newSellerdata) => {
-  try {
-    const res = await fetch(`${baseUrl}/api/sellerProfile`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newSellerdata)
-    });
+// const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+// export const createSeller = async (newSellerdata) => {
+//   try {
+//     const res = await fetch(`${baseUrl}/api/sellerProfile`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(newSellerdata)
+//     });
 
-    if (!res.ok) {
-       throw new Error(`HTTP error! status: ${res.status}`);
-    }
+//     if (!res.ok) {
+//        throw new Error(`HTTP error! status: ${res.status}`);
+//     }
 
-    return await res.json();
-  } catch (error) {
-    console.error("Fetch API Error:", error);
-    return { message: "Failed to communicate with database server." };
-  }
-}
+//     return await res.json();
+//   } catch (error) {
+//     console.error("Fetch API Error:", error);
+//     return { message: "Failed to communicate with database server." };
+//   }
+// }

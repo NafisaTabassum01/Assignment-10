@@ -8,6 +8,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co', // ImgBB এর ইমেজ হোস্ট ডোমেইন
+      },
     ],
   },
 };

@@ -132,7 +132,7 @@ It is a second-Hand Marketplace Platform where users can buy, sell, and discover
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-[#57CC99] text-sm shrink-0" />
                 <a href="mailto:info@globaltech.com" className="text-slate-200 hover:text-[#57CC99] transition-colors">
-                  info@globaltech.com
+                  info@nextmart.com
                 </a>
               </li>
             </ul>
@@ -144,7 +144,7 @@ It is a second-Hand Marketplace Platform where users can buy, sell, and discover
       {/* --- 5. Copyright Section --- */}
       <div className="bg-black/20 border-t border-white/5 py-5 text-center text-xs text-slate-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:items-center justify-between gap-3">
-          <p>© {currentYear} <span className="font-semibold text-white">GLOBALTECH Solutions</span>. All rights reserved.</p>
+          <p>© {currentYear} <span className="font-semibold text-white">NEXTMART Solutions</span>. All rights reserved.</p>
           
         </div>
       </div>

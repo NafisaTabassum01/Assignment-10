@@ -1,34 +1,20 @@
-// import { getSellerProduct } from '@/lib/api/products';
-// import React from 'react';
 
-// const MyProductPage = async() => {
-    
-//     const sellerId = 'seller-123';
-//     const products = await getSellerProduct(sellerId);
-//     console.log("products for sell" , products)
 
-//     return (
-//         <div>
-//             <h2>Manage All Products</h2>
-//         </div>
-//     );
-// };
-
-// export default MyProductPage;
-
-import { getSellerProduct } from '@/lib/api/products';
+import { getLoggedinSellerProfile, getSellerProduct } from '@/lib/api/products';
 import { Table, Button, Chip } from "@heroui/react";
 import React from 'react';
 import Image from 'next/image';
 import { FiEdit2, FiTrash2, FiShoppingBag } from 'react-icons/fi';
 
 const MyProductPage = async () => {
-    const sellerId = 'seller-123';
-    
-    // Server-side database API data fetch sequence pipeline
+
+const seller = await getLoggedinSellerProfile();
+   
+
+
     let products = [];
     try {
-        products = await getSellerProduct(sellerId) || [];
+        products = await getSellerProduct(seller._id) || [];
     } catch (error) {
         console.error("Error fetching seller products:", error);
     }
