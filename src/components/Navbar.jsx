@@ -106,7 +106,7 @@ export default function Navbar() {
           </li>
           <li className="h-full flex items-center">
             <Link 
-              href="/products" 
+              href="/allProducts" 
               className={`flex items-center gap-1.5 text-base font-medium transition-all h-full border-b-2 mt-[2px] ${
                 isActive("/products") 
                   ? "text-[#38A3A5] border-[#38A3A5] font-semibold" 

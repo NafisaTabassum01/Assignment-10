@@ -39,67 +39,63 @@ const seller = await getLoggedinSellerProfile();
             <div className="max-w-7xl mx-auto bg-white border border-slate-100 rounded-2xl shadow-xl p-4 md:p-6">
                 <Table variant="secondary"  className="w-full">
                     <Table.ScrollContainer className="rounded-xl border border-slate-100 overflow-hidden">
-                        <Table.Content aria-label="Seller listed inventories dashboard configuration matrix" className="min-w-[800px] bg-white">
-                            
-                            {/* Table Column Headers Schema Definitions */}
-                            <Table.Header>
-                                <Table.Column isRowHeader className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 pl-6">Product</Table.Column>
-                                <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Category</Table.Column>
-                                <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Condition</Table.Column>
-                                <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Price</Table.Column>
-                                <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Stock</Table.Column>
-                                <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 text-center">Edit</Table.Column>
-                                <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 text-center pr-6">Delete</Table.Column>
-                            </Table.Header>
-
+             <Table.Content aria-label="Seller listed inventories dashboard configuration matrix" className="min-w-[800px] bg-white">
+                 
+          {/* Table Column Headers Schema Definitions */}
+          <Table.Header>
+              <Table.Column isRowHeader className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 pl-6">Product</Table.Column>
+              <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Category</Table.Column>
+              <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Condition</Table.Column>
+              <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Price</Table.Column>
+              <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Stock</Table.Column>
+              <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 text-center">Edit</Table.Column>
+              <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 text-center pr-6">Delete</Table.Column>
+                        </Table.Header>
                             {/* Dynamic Data Model Execution Loops */}
-                            <Table.Body emptyContent={<div className="text-center py-10 text-slate-400 text-sm font-medium">No inventory elements created. Start by adding a product!</div>}>
-                                {products.map((product) => (
-                                    <Table.Row key={product._id || product.id} className="border-b border-slate-100 hover:bg-slate-50/60 transition-colors">
-                                        
-                                        {/* Product Title and Visual Media Slot Grid Cell */}
-                                        <Table.Cell className="py-4 pl-6">
-                                            <div className="flex items-center gap-4">
-                                                <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-slate-100 bg-slate-50 shrink-0">
-                                                    <Image 
-                                                        src={product.ImageUrl || product.imageUrl || "/placeholder.jpg"} 
-                                                        alt={product.ProductTitle || "Product thumbnail"} 
-                                                        fill
-                                                        sizes="48px"
-                                                        className="object-cover"
-                                                    />
-                                                </div>
-                                                <div className="flex flex-col gap-0.5 max-w-[220px]">
-                                                    <span className="text-sm font-bold text-[#22577A] truncate block">
-                                                        {product.ProductTitle || product.name}
-                                                    </span>
-                                                    <span className="text-[11px] text-slate-400 truncate block">
-                                                        {product.ProductDescription || product.description}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </Table.Cell>
-
-                                        {/* Category Structural Metadata Layer */}
-                                        <Table.Cell className="text-sm font-medium text-slate-600 py-4">
-                                            {product.Category || product.category || "General"}
-                                        </Table.Cell>
-
-                                        {/* Status Condition Badging Utility Context Chips */}
-                                        <Table.Cell className="py-4">
-                                            <Chip 
-                                                size="sm" 
-                                                variant="flat" 
-                                                className="capitalize font-bold text-[11px] px-2.5 bg-[#216869]/10 text-[#216869] border border-[#216869]/20 rounded-lg"
-                                            >
-                                                {product.Condition || product.condition || "New"}
-                                            </Chip>
-                                        </Table.Cell>
-
-                                        {/* Numerical Evaluation Parameters Price Processing */}
-                                        <Table.Cell className="text-sm font-black text-[#22577A] py-4">
-                                            ৳{(product.Price || product.price || 0).toLocaleString()}
-                                        </Table.Cell>
+       <Table.Body emptyContent={<div className="text-center py-10 text-slate-400 text-sm font-medium">No inventory elements created. Start by adding a product!</div>}>
+           {products.map((product) => (
+               <Table.Row key={product._id || product.id} className="border-b border-slate-100 hover:bg-slate-50/60 transition-colors">
+                   
+                   {/* Product Title and Visual Media Slot Grid Cell */}
+                   <Table.Cell className="py-4 pl-6">
+                       <div className="flex items-center gap-4">
+                           <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-slate-100 bg-slate-50 shrink-0">
+                               <Image 
+                                   src={product.ImageUrl || product.imageUrl || "/placeholder.jpg"} 
+                                   alt={product.ProductTitle || "Product thumbnail"} 
+                                   fill
+                                   sizes="48px"
+                                   className="object-cover"
+                               />
+                           </div>
+                           <div className="flex flex-col gap-0.5 max-w-[220px]">
+                               <span className="text-sm font-bold text-[#22577A] truncate block">
+                                                    {product.ProductTitle || product.name}
+                                                </span>
+                                              <span className="text-[11px] text-slate-400 truncate block">
+                                                  {product.ProductDescription || product.description}
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </Table.Cell>
+                                  {/* Category Structural Metadata Layer */}
+                                  <Table.Cell className="text-sm font-medium text-slate-600 py-4">
+                                      {product.Category || product.category || "General"}
+                                  </Table.Cell>
+                                  {/* Status Condition Badging Utility Context Chips */}
+                                      <Table.Cell className="py-4">
+                                          <Chip 
+                                              size="sm" 
+                                              variant="flat" 
+                                              className="capitalize font-bold text-[11px] px-2.5 bg-[#216869]/10 text-[#216869] border border-[#216869]/20 rounded-lg"
+                                          >
+                                              {product.Condition || product.condition || "New"}
+                                          </Chip>
+                                      </Table.Cell>
+                                      {/* Numerical Evaluation Parameters Price Processing */}
+                                      <Table.Cell className="text-sm font-black text-[#22577A] py-4">
+                                          ৳{(product.Price || product.price || 0).toLocaleString()}
+                                      </Table.Cell>
 
                                         {/* Stock Volume Metric Parameters Layout */}
                                         <Table.Cell className="py-4">
@@ -147,3 +143,4 @@ const seller = await getLoggedinSellerProfile();
 };
 
 export default MyProductPage;
+
