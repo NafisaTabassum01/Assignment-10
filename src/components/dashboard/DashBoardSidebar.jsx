@@ -11,6 +11,9 @@ import { FaShoppingBag } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
+import { FaRegHeart } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
+
 
 
 
@@ -42,8 +45,8 @@ export async function DashBoardSidebar() {
       {icon: House, href:"/dashboard/buyer" ,label: "Overview"},
     {icon: Person, href:"/dashboard/seller/buyerProfile" , label: "Profile"},
     // {icon: Magnifier, href:"/Search" ,  label: "Search"},
-    {icon: IoMdAdd , href:"/dashboard/seller/myOrders" ,  label: "My Orders"},
-    {icon: AiOutlineProduct , href:"/dashboard/seller/wishlist" , label: "Wishlist"},
+    {icon: FaCartShopping , href:"/dashboard/seller/myOrders" ,  label: "My Orders"},
+    {icon: FaRegHeart , href:"/dashboard/seller/wishlist" , label: "Wishlist"},
     {icon: MdManageHistory, href:"/paymentHistory" ,label: "Payment History"},
     // {icon: IoMdStats, href:"/salesAnalytics", label: "Sales Analytics"},
 

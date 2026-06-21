@@ -408,6 +408,7 @@ export default function Navbar() {
   // }
 
     const user = session?.user ?? null;
+    const role = user?.role
 
   const handleLogout = async () => {
     try {
@@ -462,7 +463,7 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/dashboard" className={`flex items-center gap-2 ${isActive("/dashboard") ? "text-[#22577af5] underline underline-offset-4" : "text-[#22577af5]"}`}>
+            <Link href={`/dashboard/${role}`} className={`flex items-center gap-2 ${isActive("/dashboard") ? "text-[#22577af5] underline underline-offset-4" : "text-[#22577af5]"}`}>
               <FaThLarge /> Dashboard
             </Link>
           </li>
