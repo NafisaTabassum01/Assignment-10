@@ -120,7 +120,7 @@ const ProductDetailsPage = async ({ params }) => {
             {/* অ্যাকশন বাটনস */}
             <div className="flex items-center gap-3 w-full max-w-sm mt-2">
               <Link
-                href="/"
+                href={`${id}/buyProduct`}
                 className="flex-1 h-11 bg-[#22577A] text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 hover:bg-[#216869] transition-all duration-200 shadow-sm"
               >
                 <FiShoppingCart className="size-3.5" />

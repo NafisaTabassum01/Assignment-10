@@ -390,10 +390,24 @@ function ClientOnly({ children }) {
 /* ---------------- NAVBAR ---------------- */
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const pathname = usePathname();
 
-  const { data: session } = useSession();
-  const user = session?.user ?? null;
+  const { data: session, isPending } = useSession();
+
+  if (pathname.includes("dashboard")) {
+    return null;
+  }
+
+  // if (isPending) {
+  //   return (
+  //     <nav className="h-20 border-b border-slate-200 flex items-center px-4">
+  //       Loading...
+  //     </nav>
+  //   );
+  // }
+
+    const user = session?.user ?? null;
 
   const handleLogout = async () => {
     try {

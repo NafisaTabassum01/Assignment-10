@@ -1,6 +1,7 @@
 "use client"
 import SellerDashboardStats from '@/components/dashboard/SellerDashboardStats';
 import { useSession } from '@/lib/auth-client';
+import { Spinner } from '@heroui/react';
 // import { div } from 'framer-motion/client';
 import React from 'react';
 
@@ -9,7 +10,10 @@ const SellerDashboardPage = () => {
   const { data: session, isPending } = useSession();
 
   if(isPending) {
-    return <div>Loading...</div>
+    return <div>      <div className="flex flex-col items-center pt-60 gap-2">
+        <Spinner size="lg" className='text-teal-900'/>
+      </div>
+</div>
   }
   const user = session?.user;
 

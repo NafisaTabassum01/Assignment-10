@@ -12,8 +12,17 @@ import {
   FaEnvelope, 
   FaShoppingBag
 } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+
+  const pathname = usePathname();
+
+  if(pathname.includes('dashboard')){
+    return null;
+  }
+
+
   const currentYear = new Date().getFullYear();
 
   return (
