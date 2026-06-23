@@ -1,25 +1,25 @@
-// import { NextResponse } from "next/server";
-// import { auth } from "./lib/auth";
-// import { headers } from "next/headers";
+// // import { NextResponse } from "next/server";
+// // import { auth } from "./lib/auth";
+// // import { headers } from "next/headers";
 
-// export async function proxy(request) {
+// // export async function proxy(request) {
 
-//     const session = await auth.api.getSession({
-//         headers : await headers(),
-//         });
+// //     const session = await auth.api.getSession({
+// //         headers : await headers(),
+// //         });
 
-//     // const isLoggedIn = true;
-// console.log(session)
-//     if(session){
-//        return NextResponse.next();
-//     }
+// //     // const isLoggedIn = true;
+// // console.log(session)
+// //     if(session){
+// //        return NextResponse.next();
+// //     }
 
-//   return NextResponse.redirect(new URL("/login", request.url))
-// }
+// //   return NextResponse.redirect(new URL("/login", request.url))
+// // }
 
-// export const config = {
-//   matcher: ["/dashboard"]
-// }
+// // export const config = {
+// //   matcher: ["/dashboard"]
+// // }
 
 import { NextResponse } from "next/server";
 import { auth } from "./lib/auth";
@@ -36,14 +36,14 @@ export async function proxy(request) {
     );
   }
 
-  const role = session.user.role;
+  // const role = session.user.role;
 
   // user /dashboard hit korle
-  if (request.nextUrl.pathname === "/dashboard") {
-    return NextResponse.redirect(
-      new URL(`/dashboard/${role}`, request.url)
-    );
-  }
+  // if (request.nextUrl.pathname === "/dashboard") {
+  //   return NextResponse.redirect(
+  //     new URL(`/dashboard/${role}`, request.url)
+  //   );
+  // }
 
   return NextResponse.next();
 }
@@ -51,6 +51,7 @@ export async function proxy(request) {
 export const config = {
   matcher: [
     "/dashboard/:path*",
-    "/allProducts/:path*/buyProduct",
+    // "/allProducts/:path*/buyProduct",
   ],
 };
+

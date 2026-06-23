@@ -7,6 +7,10 @@ export async function POST() {
   try {
     const headersList = await headers()
     const origin = headersList.get('origin')
+    // const body =  await rew.json()
+    // console.log(body)
+    // // NextResponsenjson({})
+    // // return;
 
     // Create Checkout Sessions from body params.
     const session = await stripe.checkout.sessions.create({

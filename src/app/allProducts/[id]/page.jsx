@@ -11,9 +11,14 @@ import {
   FiArrowUpRight
 } from "react-icons/fi";
 import { getProduct } from "@/lib/api/products"; 
+import BuyProduct from "@/components/BuyProduct";
+// import { useSession } from "@/lib/auth-client";
 
 const ProductDetailsPage = async ({ params }) => {
+
   const { id } = await params;
+
+  // const {data:session} = useSession()
   
   const allProducts = (await getProduct()) || [];
   const product = allProducts.find((p) => p._id === id || p._id?.$oid === id);
@@ -118,22 +123,9 @@ const ProductDetailsPage = async ({ params }) => {
             </div>
 
             {/* অ্যাকশন বাটনস */}
-            <div className="flex items-center gap-3 w-full max-w-sm mt-2">
-              <Link
-                href={`${id}/buyProduct`}
-                className="flex-1 h-11 bg-[#22577A] text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 hover:bg-[#216869] transition-all duration-200 shadow-sm"
-              >
-                <FiShoppingCart className="size-3.5" />
-                Buy Now
-              </Link>
+            <div>
+              <BuyProduct id={id} price={product?.Price} stock={product?.Stock} ></BuyProduct>
               
-              <button 
-                type="button"
-                className="h-11 px-5 border border-slate-200 bg-white rounded-xl text-slate-400 hover:text-red-500 hover:border-red-200 transition-all flex items-center justify-center gap-1.5 font-bold text-xs group shrink-0"
-              >
-                <FiHeart className="size-3.5 group-hover:scale-105 transition-transform fill-transparent hover:fill-red-500" />
-                <span>Wishlist</span>
-              </button>
             </div>
 
           </div>
