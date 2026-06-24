@@ -43,11 +43,11 @@ export async function DashBoardSidebar() {
       ],
       buyer : [
       {icon: House, href:"/dashboard/buyer" ,label: "Overview"},
-    {icon: Person, href:"/dashboard/seller/buyerProfile" , label: "Profile"},
+    {icon: Person, href:"/dashboard/buyer/buyerProfile" , label: "Profile"},
     // {icon: Magnifier, href:"/Search" ,  label: "Search"},
-    {icon: FaCartShopping , href:"/dashboard/seller/myOrders" ,  label: "My Orders"},
-    {icon: FaRegHeart , href:"/dashboard/seller/wishlist" , label: "Wishlist"},
-    {icon: MdManageHistory, href:"/paymentHistory" ,label: "Payment History"},
+    {icon: FaCartShopping , href:"/dashboard/buyer/myOrders" ,  label: "My Orders"},
+    {icon: FaRegHeart , href:"/dashboard/buyer/wishlist" , label: "Wishlist"},
+    {icon: MdManageHistory, href:"/dashboard/buyer/paymentHistory" ,label: "Payment History"},
     // {icon: IoMdStats, href:"/salesAnalytics", label: "Sales Analytics"},
 
       ],
