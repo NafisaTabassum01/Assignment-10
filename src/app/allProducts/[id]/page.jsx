@@ -124,8 +124,13 @@ const ProductDetailsPage = async ({ params }) => {
 
             {/* অ্যাকশন বাটনস */}
             <div>
-              <BuyProduct id={id} price={product?.Price} stock={product?.Stock} ></BuyProduct>
-              
+              {/* <BuyProduct id={id} price={product?.Price} stock={product?.Stock} ></BuyProduct> */}
+<BuyProduct
+  id={id}
+  price={product?.Price}
+  stock={product?.Stock}
+  productTitle={product?.ProductTitle}
+/>              
             </div>
 
           </div>
