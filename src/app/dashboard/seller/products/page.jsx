@@ -5,6 +5,8 @@ import { Table, Button, Chip } from "@heroui/react";
 import React from 'react';
 import Image from 'next/image';
 import { FiEdit2, FiTrash2, FiShoppingBag } from 'react-icons/fi';
+import Link from 'next/link';
+import DeleteProductButton from '@/components/DeleteProductButton';
 
 const MyProductPage = async () => {
 
@@ -106,20 +108,22 @@ const seller = await getLoggedinSellerProfile();
 
                                         {/* Edit Interface Controls Functional Action Triggers */}
                                         <Table.Cell className="text-center py-4">
-                                            <Button 
-                                                isIconOnly 
-                                                size="sm" 
-                                                variant="light" 
-                                                aria-label="Edit product entry"
-                                                className="text-[#38A3A5] hover:bg-[#38A3A5]/10 rounded-lg"
-                                            >
-                                                <FiEdit2 className="size-4" />
-                                            </Button>
-                                        </Table.Cell>
+                                <Link
+                                  href={`/dashboard/seller/products/${product._id}/edit`}
+                                >
+                                  <Button
+                                    isIconOnly
+                                    size="sm"
+                                    variant="light"
+                                    className="text-[#38A3A5]"
+                                  >
+                                    <FiEdit2 />
+                                  </Button>
+                                </Link>   </Table.Cell>
 
                                         {/* Delete Management Infrastructure Interface Controls */}
                                         <Table.Cell className="text-center py-4 pr-6">
-                                            <Button 
+                                            {/* <Button 
                                                 isIconOnly 
                                                 size="sm" 
                                                 variant="light" 
@@ -127,7 +131,10 @@ const seller = await getLoggedinSellerProfile();
                                                 className="text-rose-500 hover:bg-rose-50 rounded-lg"
                                             >
                                                 <FiTrash2 className="size-4" />
-                                            </Button>
+                                            </Button> */}
+                                            <DeleteProductButton
+                                         productId={product._id}
+                                         title={product.ProductTitle}/>
                                         </Table.Cell>
 
                                     </Table.Row>
