@@ -4,6 +4,8 @@ import { useSession } from '@/lib/auth-client';
 import { Spinner } from '@heroui/react';
 // import { div } from 'framer-motion/client';
 import React from 'react';
+// import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+
 
 const SellerDashboardPage = () => {
 
@@ -21,6 +23,7 @@ const SellerDashboardPage = () => {
         <div>
             <h2 className='pl-5 text-2xl font-semibold'>Welcome back, {user?.name}</h2>
             <SellerDashboardStats></SellerDashboardStats>
+
         </div>
     );
 };
