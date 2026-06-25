@@ -37,15 +37,15 @@ export async function DashBoardSidebar() {
     // {icon: Magnifier, href:"/Search" ,  label: "Search"},
     {icon: IoMdAdd , href:"/dashboard/seller/addProducts" ,  label: "Add Product"},
     {icon: AiOutlineProduct , href:"/dashboard/seller/products" , label: "My Products"},
-    {icon: MdManageHistory, href:"/manageOrders" ,label: "Manage Orders"},
-    {icon: IoMdStats, href:"/salesAnalytics", label: "Sales Analytics"},
+    {icon: MdManageHistory, href:"/dashboard/seller/manageOrder" ,label: "Manage Orders"},
+    {icon: IoMdStats, href:"/dashboard/seller/salesAnalytics", label: "Sales Analytics"},
 
       ],
       buyer : [
       {icon: House, href:"/dashboard/buyer" ,label: "Overview"},
-    {icon: Person, href:"/dashboard/buyer/buyerProfile" , label: "Profile"},
+    {icon: Person, href:"/dashboard/buyer/profile" , label: "Profile"},
     // {icon: Magnifier, href:"/Search" ,  label: "Search"},
-    {icon: FaCartShopping , href:"/dashboard/buyer/myOrders" ,  label: "My Orders"},
+    {icon: FaCartShopping , href:"/dashboard/buyer/myOrder" ,  label: "My Orders"},
     {icon: FaRegHeart , href:"/dashboard/buyer/wishlist" , label: "Wishlist"},
     {icon: MdManageHistory, href:"/dashboard/buyer/paymentHistory" ,label: "Payment History"},
     // {icon: IoMdStats, href:"/salesAnalytics", label: "Sales Analytics"},
@@ -57,7 +57,7 @@ export async function DashBoardSidebar() {
     // {icon: Magnifier, href:"/Search" ,  label: "Search"},
     {icon: IoMdAdd , href:"/dashboard/seller/myOrders" ,  label: "Manage Orders"},
     {icon: AiOutlineProduct , href:"/dashboard/seller/wishlist" , label: "Wishlist"},
-    {icon: IoMdStats, href:"/salesAnalytics", label: "Platform Analytics"},
+    {icon: IoMdStats, href:"/dashboard/admin/salesAnalytics", label: "Platform Analytics"},
     // {icon: MdManageHistory, href:"/paymentHistory" ,label: "Payment History"},
 
       ]
