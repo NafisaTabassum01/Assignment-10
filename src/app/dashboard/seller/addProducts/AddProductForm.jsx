@@ -24,7 +24,7 @@ const AddProductForm = ({seller}) => {
       ...product,
       Price: Number(product.Price),
       Stock: Number(product.Stock),
-      sellerId : seller._id,
+sellerId : seller.sellerId,
       sellerName : seller.name,
       sellerProfilePicture : seller.profilePicture,
       status : "active",

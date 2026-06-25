@@ -122,16 +122,42 @@ const handleImageChange = async (e) => {
     }
 
     try {
-      const response = await createSeller(updatedProfilePayload);
-      console.log("Backend Response:", response);
+      // const response = await createSeller(updatedProfilePayload);
+      // console.log("Backend Response:", response);
 
-      // 💡 ফিক্স: রেসপন্স ট্রু হলে বা সাকসেসফুল মেসেজ আসলে স্টেট আপডেট হবে
-      if (response || response?.insertedId || response?.modifiedCount) {
-        setSellerProfile(updatedProfilePayload);
-        setMode("view");
-      } else {
-        alert(response?.message || "Something went wrong!");
-      }
+      // // 💡 ফিক্স: রেসপন্স ট্রু হলে বা সাকসেসফুল মেসেজ আসলে স্টেট আপডেট হবে
+      // if (response || response?.insertedId || response?.modifiedCount) {
+      //   setSellerProfile(updatedProfilePayload);
+      //   setMode("view");
+      // } else {
+      //   alert(response?.message || "Something went wrong!");
+      // }
+
+let response;
+
+if (mode === "edit") {
+  response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/sellerProfile/${seller.id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedProfilePayload),
+    }
+  );
+
+  response = await response.json();
+  setSellerProfile(updatedProfilePayload);
+setMode("view");
+} else {
+  response = await createSeller(updatedProfilePayload);
+setSellerProfile(updatedProfilePayload);
+setMode("view");
+
+  
+}
+
     } catch (error) {
       console.error("Submission Error:", error);
     } finally {

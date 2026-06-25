@@ -16,7 +16,7 @@ const seller = await getLoggedinSellerProfile();
 
     let products = [];
     try {
-        products = await getSellerProduct(seller._id) || [];
+        products = await getSellerProduct(seller.sellerId) || [];
     } catch (error) {
         console.error("Error fetching seller products:", error);
     }

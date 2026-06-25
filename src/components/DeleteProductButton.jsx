@@ -15,7 +15,7 @@ const DeleteProductButton = ({
 
   const handleDelete = async () => {
     await fetch(
-      `http://localhost:5000/api/products/${productId}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${productId}`,
       {
         method: "DELETE",
       }

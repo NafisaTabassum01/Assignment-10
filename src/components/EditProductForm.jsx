@@ -99,7 +99,7 @@ const EditProductForm = ({ product }) => {
     e.preventDefault();
 
     await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/products/${product._id}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${product._id}`,
       {
         method: "PATCH",
         headers: {

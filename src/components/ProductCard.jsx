@@ -7,6 +7,7 @@ import Image from "next/image";
 import { FiPackage } from "react-icons/fi";
 
 const ProductCard = ({ products }) => {
+  // console.log(products.ProductTitel)
   if (!products || products.length === 0) {
     return (
       <div className="w-full text-center py-12 text-slate-400 font-medium">
