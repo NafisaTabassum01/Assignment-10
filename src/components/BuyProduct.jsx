@@ -137,24 +137,34 @@ const BuyProduct = ({
           </Link>
         </div>
       ) : user.role === "buyer" ? (
-        <div className="flex items-center gap-3 w-full max-w-sm mt-2">
-          <button
-            onClick={handleBuyingProduct}
-            className="flex-1 h-11 p-3 bg-[#22577A] cursor-pointer text-white font-bold text-xs rounded flex items-center justify-center gap-1.5 hover:bg-[#216869] transition-all duration-200 shadow-sm"
-          >
-            <FiShoppingCart className="size-3.5" />
-            Buy Now
-          </button>
+  <div className="flex items-center gap-3 w-full max-w-sm mt-2">
+    <button
+      onClick={handleBuyingProduct}
+      disabled={Number(stock) <= 0}
+      className={`flex-1 h-11 p-3 text-white font-bold text-xs rounded flex items-center justify-center gap-1.5 transition-all duration-200 shadow-sm
+        ${
+          Number(stock) <= 0
+            ? "bg-red-500 cursor-not-allowed"
+            : "bg-[#22577A] cursor-pointer hover:bg-[#216869]"
+        }`}
+    >
+      <FiShoppingCart className="size-3.5" />
 
-          <button
-            type="button"
-            className="h-11 px-5 border border-slate-200 bg-white rounded text-slate-400 hover:text-red-500 hover:border-red-200 transition-all flex items-center justify-center gap-1.5 font-bold text-xs group shrink-0"
-          >
-            <FiHeart className="size-3.5 group-hover:scale-105 transition-transform" />
-            <span>Wishlist</span>
-          </button>
-        </div>
-      ) : (
+      {Number(stock) <= 0
+        ? "Stock Out"
+        : `Buy Now (${stock} left)`}
+    </button>
+
+    <button
+      type="button"
+      className="h-11 px-5 border border-slate-200 bg-white rounded text-slate-400 hover:text-red-500 hover:border-red-200 transition-all flex items-center justify-center gap-1.5 font-bold text-xs group shrink-0"
+    >
+      <FiHeart className="size-3.5 group-hover:scale-105 transition-transform" />
+      <span>Wishlist</span>
+    </button>
+  </div>
+)
+       : (
         <div className="w-5/12 border-2 bg-[#22577A] text-lg rounded text-white font-semibold p-3 text-center">
           {user.role.toUpperCase()} cannot buy a product.
         </div>
