@@ -98,8 +98,13 @@ It is a second-Hand Marketplace Platform where users can buy, sell, and discover
             </h3>
             <ul className="flex flex-col gap-2.5 text-sm list-none p-0 m-0">
               <li>
-                <Link href="/about" className="text-slate-200 hover:text-[#57CC99] transition-colors">
+                <Link href="information/aboutUs" className="text-slate-200 hover:text-[#57CC99] transition-colors">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="information/contactUs" className="text-slate-200 hover:text-[#57CC99] transition-colors">
+                  Contact Us
                 </Link>
               </li>
               <li>
@@ -110,11 +115,6 @@ It is a second-Hand Marketplace Platform where users can buy, sell, and discover
               <li>
                 <Link href="/terms" className="text-slate-200 hover:text-[#57CC99] transition-colors">
                   Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-slate-200 hover:text-[#57CC99] transition-colors">
-                  Support Center
                 </Link>
               </li>
             </ul>

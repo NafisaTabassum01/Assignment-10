@@ -27,7 +27,7 @@ const AddProductForm = ({seller}) => {
 sellerId : seller.sellerId,
       sellerName : seller.name,
       sellerProfilePicture : seller.profilePicture,
-      status : "active",
+      status : "pending",
     };
 
 const res = await createProduct(productData);

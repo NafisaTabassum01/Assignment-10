@@ -4,7 +4,7 @@ import {Bars, House, Magnifier, Person} from "@gravity-ui/icons";
 import {Button, Drawer} from "@heroui/react";
 import { IoMdAdd } from "react-icons/io";
 import { AiOutlineProduct } from "react-icons/ai";
-import { MdManageHistory } from "react-icons/md";
+// import { MdManageHistory } from "react-icons/md";
 import { IoMdStats } from "react-icons/io";
 import Link from "next/link";
 import { FaShoppingBag } from "react-icons/fa";
@@ -13,7 +13,9 @@ import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
-
+import { MdManageAccounts } from "react-icons/md";
+import { MdManageHistory } from "react-icons/md";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 
 
@@ -53,10 +55,10 @@ export async function DashBoardSidebar() {
       ],
       admin : [
       {icon: House, href:"/dashboard/admin" ,label: "Overview"},
-    {icon: Person, href:"/dashboard/seller/buyerProfile" , label: "Manage Users"},
+    {icon: MdManageAccounts, href:"/dashboard/admin/manageUsers" , label: "Manage Users"},
     // {icon: Magnifier, href:"/Search" ,  label: "Search"},
-    {icon: IoMdAdd , href:"/dashboard/seller/myOrders" ,  label: "Manage Orders"},
-    {icon: AiOutlineProduct , href:"/dashboard/seller/wishlist" , label: "Wishlist"},
+    {icon: MdManageHistory , href:"/dashboard/admin/manageOrders" ,  label: "Manage Orders"},
+    {icon: HiOutlineShoppingBag , href:"/dashboard/admin/manageProduct" , label: "Manage Product"},
     {icon: IoMdStats, href:"/dashboard/admin/salesAnalytics", label: "Platform Analytics"},
     // {icon: MdManageHistory, href:"/paymentHistory" ,label: "Payment History"},
 
