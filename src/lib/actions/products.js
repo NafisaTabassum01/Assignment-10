@@ -7,17 +7,14 @@ export const createProduct = async (newSellerdata) => {
 };
 
 
-// const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-// export const createProduct = async (newProductdata)=>{
-//  const res = await fetch(`${baseUrl}/api/products` , {
-//     method : 'POST' ,
-//     headers : {
-//         'Content-type' : 'application/json',
+export const getProduct = async () => {
+  console.log("PRODUCT API FILE LOADED");
+  const res = await fetch("http://localhost:5000/api/products", {
+    cache: "no-store",
+  });
 
-//     },
-//     body : JSON.stringify(newProductdata)
-//  });
+  const result = await res.json();
 
-//  return res.json();
-// }
+  return result.data;
+};

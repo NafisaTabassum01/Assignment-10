@@ -10,7 +10,11 @@ import DeleteProductButton from '@/components/DeleteProductButton';
 
 const MyProductPage = async () => {
 
+// const seller = await getLoggedinSellerProfile();
 const seller = await getLoggedinSellerProfile();
+
+console.log(seller);
+// console.log("Seller:", seller);
    
 
 
@@ -50,6 +54,7 @@ const seller = await getLoggedinSellerProfile();
               <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Condition</Table.Column>
               <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Price</Table.Column>
               <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Stock</Table.Column>
+              <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4">Status</Table.Column>
               <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 text-center">Edit</Table.Column>
               <Table.Column className="bg-slate-50 text-slate-500 font-bold text-xs uppercase tracking-wider py-4 text-center pr-6">Delete</Table.Column>
                         </Table.Header>
@@ -58,83 +63,100 @@ const seller = await getLoggedinSellerProfile();
            {products.map((product) => (
                <Table.Row key={product._id || product.id} className="border-b border-slate-100 hover:bg-slate-50/60 transition-colors">
                    
-                   {/* Product Title and Visual Media Slot Grid Cell */}
-                   <Table.Cell className="py-4 pl-6">
-                       <div className="flex items-center gap-4">
-                           <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-slate-100 bg-slate-50 shrink-0">
-                               <Image 
-                                   src={product.ImageUrl || product.imageUrl || "/placeholder.jpg"} 
-                                   alt={product.ProductTitle || "Product thumbnail"} 
-                                   fill
-                                   sizes="48px"
-                                   className="object-cover"
-                               />
-                           </div>
-                           <div className="flex flex-col gap-0.5 max-w-[220px]">
-                               <span className="text-sm font-bold text-[#22577A] truncate block">
-                                                    {product.ProductTitle || product.name}
-                                                </span>
-                                              <span className="text-[11px] text-slate-400 truncate block">
-                                                  {product.ProductDescription || product.description}
-                                              </span>
-                                          </div>
-                                      </div>
-                                  </Table.Cell>
-                                  {/* Category Structural Metadata Layer */}
-                                  <Table.Cell className="text-sm font-medium text-slate-600 py-4">
-                                      {product.Category || product.category || "General"}
-                                  </Table.Cell>
-                                  {/* Status Condition Badging Utility Context Chips */}
-                                      <Table.Cell className="py-4">
-                                          <Chip 
-                                              size="sm" 
-                                              variant="flat" 
-                                              className="capitalize font-bold text-[11px] px-2.5 bg-[#216869]/10 text-[#216869] border border-[#216869]/20 rounded-lg"
-                                          >
-                                              {product.Condition || product.condition || "New"}
-                                          </Chip>
-                                      </Table.Cell>
-                                      {/* Numerical Evaluation Parameters Price Processing */}
-                                      <Table.Cell className="text-sm font-black text-[#22577A] py-4">
-                                          ৳{(product.Price || product.price || 0).toLocaleString()}
-                                      </Table.Cell>
+       {/* Product Title and Visual Media Slot Grid Cell */}
+       <Table.Cell className="py-4 pl-6">
+           <div className="flex items-center gap-4">
+               <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-slate-100 bg-slate-50 shrink-0">
+                   <Image 
+                       src={product.ImageUrl || product.imageUrl || "/placeholder.jpg"} 
+                       alt={product.ProductTitle || "Product thumbnail"} 
+                       fill
+                       sizes="48px"
+                       className="object-cover"
+                   />
+               </div>
+               <div className="flex flex-col gap-0.5 max-w-[220px]">
+                   <span className="text-sm font-bold text-[#22577A] truncate block">
+                                        {product.ProductTitle || product.name}
+                                    </span>
+                          <span className="text-[11px] text-slate-400 truncate block">
+                              {product.ProductDescription || product.description}
+                          </span>
+                      </div>
+                  </div>
+              </Table.Cell>
+              {/* Category Structural Metadata Layer */}
+              <Table.Cell className="text-sm font-medium text-slate-600 py-4">
+                  {product.Category || product.category || "General"}
+              </Table.Cell>
+              {/* Status Condition Badging Utility Context Chips */}
+                  <Table.Cell className="py-4">
+                      <Chip 
+                          size="sm" 
+                                          variant="flat" 
+                                 className="capitalize font-bold text-[11px] px-2.5 bg-[#216869]/10 text-[#216869] border border-[#216869]/20 rounded-lg"
+                             >
+                                 {product.Condition || product.condition || "New"}
+                             </Chip>
+                         </Table.Cell>
+                         {/* Numerical Evaluation Parameters Price Processing */}
+                         <Table.Cell className="text-sm font-black text-[#22577A] py-4">
+                             ৳{(product.Price || product.price || 0).toLocaleString()}
+                         </Table.Cell>
+                         {/* Stock Volume Metric Parameters Layout */}
+                           <Table.Cell className="py-4">
+                               <span className={`text-xs font-bold px-2 py-1 rounded-md ${Number(product.Stock || product.stock) > 0 ? 'bg-emerald-50 text-emerald-600' : 'bg-rose-50 text-rose-500'}`}>
+                                   {product.Stock || product.stock || 0} Units
+                               </span>
+                           </Table.Cell>
 
-                                        {/* Stock Volume Metric Parameters Layout */}
-                                        <Table.Cell className="py-4">
-                                            <span className={`text-xs font-bold px-2 py-1 rounded-md ${Number(product.Stock || product.stock) > 0 ? 'bg-emerald-50 text-emerald-600' : 'bg-rose-50 text-rose-500'}`}>
-                                                {product.Stock || product.stock || 0} Units
-                                            </span>
-                                        </Table.Cell>
 
-                                        {/* Edit Interface Controls Functional Action Triggers */}
-                                        <Table.Cell className="text-center py-4">
-                                <Link
-                                  href={`/dashboard/seller/products/${product._id}/edit`}
-                                >
-                                  <Button
-                                    isIconOnly
+                           <Table.Cell>
+                             <Chip
+                               size="sm"
+                               color={
+                                 product.status === "approved"
+                                   ? "success"
+                                   : product.status === "rejected"
+                                   ? "danger"
+                                   : "warning"
+                               }
+                               variant="flat"
+                             >
+                               {product.status}
+                             </Chip>
+                           </Table.Cell>
+
+
+
+                           {/* Edit Interface Controls Functional Action Triggers */}
+                           <Table.Cell className="text-center py-4">
+                   <Link
+                     href={`/dashboard/seller/products/${product._id}/edit`}
+                    >
+                      <Button
+                        isIconOnly
                                     size="sm"
                                     variant="light"
-                                    className="text-[#38A3A5]"
-                                  >
-                                    <FiEdit2 />
-                                  </Button>
-                                </Link>   </Table.Cell>
-
-                                        {/* Delete Management Infrastructure Interface Controls */}
-                                        <Table.Cell className="text-center py-4 pr-6">
-                                            {/* <Button 
-                                                isIconOnly 
-                                                size="sm" 
-                                                variant="light" 
-                                                aria-label="Delete product from live registry"
-                                                className="text-rose-500 hover:bg-rose-50 rounded-lg"
-                                            >
-                                                <FiTrash2 className="size-4" />
-                                            </Button> */}
-                                            <DeleteProductButton
-                                         productId={product._id}
-                                         title={product.ProductTitle}/>
+                                   className="text-[#38A3A5]"
+                 >
+                   <FiEdit2 />
+                 </Button>
+               </Link>   </Table.Cell>
+                       {/* Delete Management Infrastructure Interface Controls */}
+                       <Table.Cell className="text-center py-4 pr-6">
+                           {/* <Button 
+                               isIconOnly 
+                               size="sm" 
+                               variant="light" 
+                               aria-label="Delete product from live registry"
+                                className="text-rose-500 hover:bg-rose-50 rounded-lg"
+                            >
+                                <FiTrash2 className="size-4" />
+                            </Button> */}
+                            <DeleteProductButton
+                         productId={product._id}
+                         title={product.ProductTitle}/>
                                         </Table.Cell>
 
                                     </Table.Row>

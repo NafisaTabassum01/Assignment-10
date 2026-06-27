@@ -56,7 +56,7 @@ export default function Navbar() {
       await authClient.signOut({
         fetchOptions: {
           onSuccess: () => {
-window.location.href = `/dashboard/${userRole}`;          },
+window.location.href = '/login';          },
         },
       });
     } catch (err) {

@@ -7,12 +7,17 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
-    const {
-      productId,
-      userId,
-      amount,
-      productTitle,
-    } = body;
+const {
+  productId,
+  userId,
+  amount,
+  productTitle,
+
+  buyerName,
+  buyerPhone,
+  buyerAddress,
+} = body;
+
 
     const headersList = await headers();
     const origin = headersList.get("origin");
@@ -34,12 +39,17 @@ export async function POST(req) {
         },
       ],
 
-      metadata: {
-        productId,
-        userId,
-        amount,
-        productTitle,
-      },
+metadata: {
+  productId,
+  userId,
+  amount,
+  productTitle,
+
+  buyerName,
+  buyerPhone,
+  buyerAddress,
+},
+
 
       mode: "payment",
 

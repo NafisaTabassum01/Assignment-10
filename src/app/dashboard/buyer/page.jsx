@@ -95,13 +95,7 @@ const BuyerDashboardPage = () => {
     },
   ];
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-60">
-        Loading...
-      </div>
-    );
-  }
+  
 
   return (
     <div className="w-full lg:w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-2">
@@ -138,7 +132,7 @@ const BuyerDashboardPage = () => {
               )}
             </div>
 
-            <div className="w-full text-center border-t border-slate-50 pt-3">
+            <div className="w-full text-center border-t border-slate-50 ">
               <Card.Description className="text-[11px] text-slate-400 leading-normal font-medium">
                 {stat.description}
               </Card.Description>

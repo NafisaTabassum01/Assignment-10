@@ -58,7 +58,7 @@ export async function DashBoardSidebar() {
     {icon: MdManageAccounts, href:"/dashboard/admin/manageUsers" , label: "Manage Users"},
     // {icon: Magnifier, href:"/Search" ,  label: "Search"},
     {icon: MdManageHistory , href:"/dashboard/admin/manageOrders" ,  label: "Manage Orders"},
-    {icon: HiOutlineShoppingBag , href:"/dashboard/admin/manageProduct" , label: "Manage Product"},
+    {icon: HiOutlineShoppingBag , href:"/dashboard/admin/manageProducts" , label: "Manage Product"},
     {icon: IoMdStats, href:"/dashboard/admin/salesAnalytics", label: "Platform Analytics"},
     // {icon: MdManageHistory, href:"/paymentHistory" ,label: "Payment History"},
 

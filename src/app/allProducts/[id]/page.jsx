@@ -20,8 +20,13 @@ const ProductDetailsPage = async ({ params }) => {
 
   // const {data:session} = useSession()
   
-  const allProducts = (await getProduct()) || [];
-  const product = allProducts.find((p) => p._id === id || p._id?.$oid === id);
+const result = await getProduct();
+const allProducts = result.data || [];
+
+const product = allProducts.find(
+  (p) => p._id === id || p._id?.$oid === id
+);
+
 
   if (!product) {
     return (
@@ -125,12 +130,22 @@ const ProductDetailsPage = async ({ params }) => {
             {/* অ্যাকশন বাটনস */}
             <div>
               {/* <BuyProduct id={id} price={product?.Price} stock={product?.Stock} ></BuyProduct> */}
-<BuyProduct
+{/* <BuyProduct
   id={id}
   price={product?.Price}
   stock={product?.Stock}
   productTitle={product?.ProductTitle}
-/>              
+/>               */}
+
+
+<Link
+  href={`/allProducts/${id}/buyProduct`}
+  className="flex-1 h-11 bg-[#22577A] text-white rounded flex items-center justify-center gap-2"
+>
+  <FiShoppingCart />
+  Buy Now ({product.Stock} left)
+</Link>
+
             </div>
 
           </div>

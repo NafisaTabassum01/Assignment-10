@@ -44,10 +44,13 @@ const PaymentSuccessPage = async ({ searchParams }) => {
 
 
 
-buyerId: session.metadata?.userId,
-    buyerName: session.metadata?.buyerName,     // স্ট্রাইপ সেশন তৈরি করার সময় এটা পাস করবি
-    buyerEmail: session.metadata?.buyerEmail,   // স্ট্রাইpe পাস করা ইমেইল
-    
+  buyerId: session.metadata.userId,
+
+  buyerName: session.metadata.buyerName,
+  buyerPhone: session.metadata.buyerPhone,
+  buyerAddress: session.metadata.buyerAddress,
+
+  
     sellerId: session.metadata?.sellerId,       // প্রোডাক্ট থেকে পাওয়া সেলার আইডি
     sellerName: session.metadata?.sellerName,   // সেলারের নাম
     sellerEmail: session.metadata?.sellerEmail, // সেলারের ইমেইল
