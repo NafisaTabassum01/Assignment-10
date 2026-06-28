@@ -50,3 +50,18 @@ export const getLoggedinSellerProfile = async () => {
 
   return seller;
 };
+
+
+// লেটেস্ট ফিচার্ড প্রোডাক্ট ব্যাকএন্ড থেকে নিয়ে আসার ফাংশন
+export const getFeaturedProducts = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/featured`, {
+      cache: "no-store", // প্রতিবার হোম পেজে ঢুকলে যেন একদম ফ্রেশ/নতুন ডাটা দেখায়
+    });
+    if (!res.ok) throw new Error("Failed to fetch featured products");
+    return res.json();
+  } catch (error) {
+    console.error("Featured Product Fetch Error:", error);
+    return { success: false, data: [] };
+  }
+};
