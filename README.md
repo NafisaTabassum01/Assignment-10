@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛍️ NEXTMART
 
-## Getting Started
+> **A Modern Second-Hand Marketplace Platform**
 
-First, run the development server:
+NEXTMART is a full-stack marketplace where users can securely buy and sell pre-owned products. The platform encourages sustainable shopping by giving unused products a second life while providing buyers with quality items at affordable prices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Live Demo
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+🔗 **Live Site:** https://assignment-10-iota-flax.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎯 Project Purpose
 
-To learn more about Next.js, take a look at the following resources:
+NEXTMART is designed to connect buyers and sellers in a secure and user-friendly marketplace.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The platform helps users:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* ♻️ Reduce unnecessary waste
+* 💰 Earn money by selling unused products
+* 🛒 Buy quality second-hand products at affordable prices
+* 🔒 Enjoy secure authentication and payment
+* 📊 Manage products and orders through dedicated dashboards
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# ✨ Key Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🔐 Authentication
+
+* Email & Password Authentication
+* Google Sign-In
+* Secure authentication with Better Auth
+* Protected Routes
+* Role-Based Authorization
+
+### 👤 Buyer Features
+
+* Browse products
+* View product details
+* Add products to Wishlist
+* Place Orders
+* Secure Stripe Payment
+* Payment History
+* Buyer Dashboard
+
+### 🛍️ Seller Features
+
+* Add Products
+* Update Product Information
+* Manage Products
+* Manage Orders
+* Sales Dashboard
+
+### 👨‍💼 Admin Features
+
+* Manage Users
+* Manage Products
+* Manage Orders
+* Platform Analytics
+
+### 💳 Payment
+
+* Stripe Payment Integration
+* Secure Checkout
+* Payment History
+
+### 🎨 UI & UX
+
+* Fully Responsive Design
+* Modern Dashboard
+* Beautiful Cards & Tables
+* Clean Navigation
+* Mobile Friendly
+
+---
+
+# 🛠️ Technologies Used
+
+## Frontend
+
+* Next.js
+* React
+* Tailwind CSS
+* HeroUI
+* React Icons
+* Gravity UI Icons
+
+## Backend
+
+* Node.js
+* Express.js
+* MongoDB
+
+## Authentication
+
+* Better Auth
+* JWT
+
+## Payment
+
+* Stripe
+
+---
+
+# 📦 NPM Packages Used
+
+### Frontend
+
+* next
+* react
+* react-dom
+* @heroui/react
+* @gravity-ui/icons
+* react-icons
+* react-hook-form
+* axios
+* sweetalert2
+* framer-motion
+
+### Backend
+
+* express
+* mongodb
+* cors
+* dotenv
+* stripe
+* better-auth
+* jsonwebtoken
+
+---
+
